@@ -1,0 +1,188 @@
+{
+  "carModels": [{
+      "name": "Jaecoo J7",
+      "amountCars": 3,
+      "image": "./assets/img/models/j7/car-j7.png"
+    },
+    {
+      "name": "Jaecoo J8",
+      "amountCars": 14,
+      "image": "./assets/img/models/j8/car-j8.png"
+    }
+  ],
+  "carColors": {
+    "Jaecoo J7": [{
+        "carName": "Jaecoo J7",
+        "primaryColor": "#94A474",
+        "secondaryColor": "#94A474",
+        "tickColor": "#fff",
+        "value": "green",
+        "displayName": "Зеленый",
+        "previewImage": "./assets/img/models/j7/green.png",
+        "finalImage": "./assets/img/models/j7/green-final.png"
+      },
+      {
+        "carName": "Jaecoo J7",
+        "primaryColor": "#94A474",
+        "secondaryColor": "#000",
+        "tickColor": "#fff",
+        "value": "green-black",
+        "displayName": "Зеленый с черн. крышей",
+        "previewImage": "./assets/img/models/j7/green-black.png",
+        "finalImage": "./assets/img/models/j7/green-black-final.png"
+      },
+      {
+        "carName": "Jaecoo J7",
+        "primaryColor": "#5B7376",
+        "secondaryColor": "#5B7376",
+        "tickColor": "#fff",
+        "value": "gray",
+        "displayName": "Серый",
+        "previewImage": "./assets/img/models/j7/gray.png",
+        "finalImage": "./assets/img/models/j7/gray-final.png"
+      },
+      {
+        "carName": "Jaecoo J7",
+        "primaryColor": "#5B7376",
+        "secondaryColor": "#000000",
+        "tickColor": "#fff",
+        "value": "gray-black",
+        "displayName": "Серый с черн. крышей",
+        "previewImage": "./assets/img/models/j7/gray-black.png",
+        "finalImage": "./assets/img/models/j7/gray-black-final.png"
+      },
+      {
+        "carName": "Jaecoo J7",
+        "primaryColor": "#B8B9BA",
+        "secondaryColor": "#B8B9BA",
+        "tickColor": "#fff",
+        "value": "silver",
+        "displayName": "Серебристый",
+        "previewImage": "./assets/img/models/j7/silver.png",
+        "finalImage": "./assets/img/models/j7/silver-final.png"
+      },
+      {
+        "carName": "Jaecoo J7",
+        "primaryColor": "#B8B9BA",
+        "secondaryColor": "#000",
+        "tickColor": "#fff",
+        "value": "silver-black",
+        "displayName": "Серебристый с черн. крышей",
+        "previewImage": "./assets/img/models/j7/silver-black.png",
+        "finalImage": "./assets/img/models/j7/silver-black-final.png"
+      },
+      {
+        "carName": "Jaecoo J7",
+        "primaryColor": "#000000",
+        "secondaryColor": "#000000",
+        "tickColor": "#fff",
+        "value": "black",
+        "displayName": "Черный",
+        "previewImage": "./assets/img/models/j7/black.png",
+        "finalImage": "./assets/img/models/j7/black-final.png"
+      },
+      {
+        "carName": "Jaecoo J7",
+        "primaryColor": "#CDD3D4",
+        "secondaryColor": "#FCFFFF",
+        "tickColor": "#000",
+        "value": "white",
+        "displayName": "Белый",
+        "previewImage": "./assets/img/models/j7/white.png",
+        "finalImage": "./assets/img/models/j7/white-final.png"
+      }
+    ],
+    "Jaecoo J8": [{
+        "carName": "Jaecoo J8",
+        "primaryColor": "#507D96",
+        "secondaryColor": "#507D96",
+        "tickColor": "#fff",
+        "value": "blue",
+        "displayName": "Синий",
+        "previewImage": "./assets/img/models/j8/blue.png",
+        "finalImage": "./assets/img/models/j8/blue-final.png"
+      },
+      {
+        "carName": "Jaecoo J8",
+        "primaryColor": "#507D96",
+        "secondaryColor": "#000",
+        "tickColor": "#fff",
+        "value": "blue-black",
+        "displayName": "Синий с черн. крышей",
+        "previewImage": "./assets/img/models/j8/blue-black.png",
+        "finalImage": "./assets/img/models/j8/blue-black-final.png"
+      },
+      {
+        "carName": "Jaecoo J8",
+        "primaryColor": "#7C8495",
+        "secondaryColor": "#7C8495",
+        "tickColor": "#fff",
+        "value": "gray",
+        "displayName": "Серый",
+        "previewImage": "./assets/img/models/j8/gray.png",
+        "finalImage": "./assets/img/models/j8/gray-final.png"
+      },
+      {
+        "carName": "Jaecoo J8",
+        "primaryColor": "#7C8495",
+        "secondaryColor": "#000000",
+        "tickColor": "#fff",
+        "value": "gray-black",
+        "displayName": "Серый с черн. крышей",
+        "previewImage": "./assets/img/models/j8/gray-black.png",
+        "finalImage": "./assets/img/models/j8/gray-black-final.png"
+      },
+      {
+        "carName": "Jaecoo J8",
+        "primaryColor": "#B8B9BA",
+        "secondaryColor": "#B8B9BA",
+        "tickColor": "#fff",
+        "value": "silver",
+        "displayName": "Серебристый",
+        "previewImage": "./assets/img/models/j8/silver.png",
+        "finalImage": "./assets/img/models/j8/silver-final.png"
+      },
+      {
+        "carName": "Jaecoo J8",
+        "primaryColor": "#B8B9BA",
+        "secondaryColor": "#000",
+        "tickColor": "#fff",
+        "value": "silver-black",
+        "displayName": "Серебристый с черн. крышей",
+        "previewImage": "./assets/img/models/j8/silver-black.png",
+        "finalImage": "./assets/img/models/j8/silver-black-final.png"
+      },
+      {
+        "carName": "Jaecoo J8",
+        "primaryColor": "#000000",
+        "secondaryColor": "#000000",
+        "tickColor": "#fff",
+        "value": "black",
+        "displayName": "Черный",
+        "previewImage": "./assets/img/models/j8/black.png",
+        "finalImage": "./assets/img/models/j8/black-final.png"
+      },
+      {
+        "carName": "Jaecoo J8",
+        "primaryColor": "#ffffff",
+        "secondaryColor": "#000000",  
+        "tickColor": "#000000",
+        "value": "white",
+        "displayName": "Белый с черн. крышей",
+        "previewImage": "./assets/img/models/j8/white-black.png",
+        "finalImage": "./assets/img/models/j8/white-black-final.png"
+      },
+      {
+        "carName": "Jaecoo J8",
+        "primaryColor": "#ffffff",
+        "secondaryColor": "#ffffff",
+        "tickColor": "#000",
+        "value": "white-black",
+        "displayName": "Белый",
+        "previewImage": "./assets/img/models/j8/white.png",
+        "finalImage": "./assets/img/models/j8/white-final.png"
+      }
+      
+    ]
+  }
+}

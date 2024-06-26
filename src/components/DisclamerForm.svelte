@@ -1,0 +1,71 @@
+<script>
+  let showDetails = false;
+
+  function toggleDetails() {
+    showDetails = !showDetails;
+  }
+</script>
+
+<div class="show-more s12 pt-md-2">
+  <p class="mb-0">
+    ** КАСКО в подарок - реализуется за счет предоставления скидки на автомобиль JAECOO J7 и JAECOO J8
+    {#if showDetails}
+      <div class="details visible">
+        Подробные условия предложения, правила страхования
+        и иные условия уточняйте у сотрудников дилерского центр JAECOO Юг-Авто. Условия
+        страхования изложены в Правилах страхования «Совкомбанк страхование» (АО),
+        размещённых на сайте страховщика - sovcomins.ru . Предложение носит информационный
+        характер, не является публичной офертой (ст. 437 ГК РФ) и ограничено наличием
+        у официальных дилеров автомобилей, на которые оно распространяется. Заключение
+        договора страхования (полиса) не является обязательным условием приобретения
+        автомобиля. Решение о заключении договора страхования принимается сотрудником
+        страховой компании. «Совкомбанк страхование» (АО). Лицензии Банка России:
+        СИ №1675 и другие. Под «подарком» понимается стоимость полиса КАСКО, включенного
+        в общую стоимость автомобиля. Подробности утоняйте у сотрудников дилерского
+        центр JAECOO Юг-Авто, не оферта.
+      </div>
+    {/if}
+    <a class="text-dark" on:click={toggleDetails}>
+      {#if showDetails}
+        <span class="text-decoration-underline">скрыть</span>
+      {:else}
+        ... <span class="text-decoration-underline">подробнее</span>
+      {/if}
+    </a>
+  </p>
+</div>
+
+<style lang="scss">
+  .show-more {
+    position: relative;
+    z-index: 30;
+    color: white;
+
+    a {
+      cursor: pointer;
+    }
+  }
+
+  .details {
+    display: none;
+    .br {
+      margin: 4px;
+    }
+  }
+
+  .details.visible {
+    display: block;
+    padding-top: 5px;
+  }
+
+  @media (max-width: 479.98px) {
+    .show-more {
+      margin-top: -40px;
+      min-height: 103px;
+    }
+
+    .show-more.s12 p {
+      font-size: 9.5px !important;
+    }
+  }
+</style>
