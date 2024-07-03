@@ -44,11 +44,11 @@
     });
 
     if (!response.ok) {
-      console.error("Failed to send an email.");
+      console.error("Ошибка при отправке на email");
       return false;
     }
 
-    console.log("Mail sent");
+    console.log("Отправлено на email");
     return true;
   }
 
@@ -66,8 +66,7 @@
       console.error("Ошибка при отправке запроса");
       return false;
     }
-
-    console.log("Успешная отправка, параметры:", requestUrl);
+    console.log("Успешная отправка, параметры: ", requestUrl);
     return true;
   }
 

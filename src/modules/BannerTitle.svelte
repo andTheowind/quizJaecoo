@@ -1,6 +1,6 @@
 <div class="banner-content-title pt-2 pt-md-3">
   <h1 class="h1">ЛЕТНИЙ SALE</h1>
-  <p class="h2">20-23 июня в Юг-Авто!</p>
+  <p class="h2">До 14 июля в Юг-Авто!</p>
   <!-- <p class="h3">до <b>1 050 000 <span id="rubleSymbol">₽</span><sup>*</sup></b></p> -->
 </div>
 

@@ -4,7 +4,7 @@
 
 <ul class="banner-list">
   <BannerItem imgSrc="./img/icons/icon-banner-1.svg">Дарим бонусы по TRADE IN</BannerItem>
-  <BannerItem imgSrc="./img/icons/icon-banner-2.svg">Авторассрочка до 78 месяцев</BannerItem>
+  <BannerItem imgSrc="./img/icons/icon-banner-2.svg">Авторассрочка до 84 месяцев</BannerItem>
   <BannerItem imgSrc="./img/icons/icon-banner-3.svg">Автомобили в наличии с ПТС</BannerItem>
   <BannerItem imgSrc="./img/icons/icon-banner-4.svg">Гарантия до 7 лет</BannerItem>
 </ul>

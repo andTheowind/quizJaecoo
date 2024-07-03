@@ -23,7 +23,6 @@
   import MailSender from "@modules/MailSender.svelte";
 
   import { windowSize } from "@sveu/browser";
-  import { imask } from "@imask/svelte";
   import SelectedCarElement from "@/components/SelectedCarElement.svelte";
 
   const { width } = windowSize();
@@ -89,74 +88,7 @@
     selectedPaymentMethod = event.detail.event || "";
     goNext();
   }
-
-  let value = "";
-
-  function accept({ detail: maskRef }: { detail: any }) {
-    value = maskRef.value;
-  }
-
-  const options = {
-    mask: "+{7}(000) 000-00-00",
-    lazy: false,
-  };
-
   let isMailSent = false;
-
-  async function sendMail(event: SubmitEvent) {
-    if (!event.target) {
-      throw new Error("bad target");
-    }
-    let formData = new FormData(event.target as HTMLFormElement);
-
-    const data = await fetch("./send.php", {
-      method: "POST",
-      body: formData,
-    }).then((response) => response.text());
-  }
-
-  async function sendMailCalltouch(event: SubmitEvent) {
-    var n, r;
-    if (!event.target) {
-      throw new Error("bad target");
-    }
-
-    let e = new FormData(event.target as HTMLFormElement),
-      t = new URLSearchParams();
-    t.append(
-      "fio",
-      ((n = e.get("name")) == null ? void 0 : n.toString()) || "",
-    ),
-      t.append(
-        "phoneNumber",
-        ((r = e.get("phone")) == null
-          ? void 0
-          : r.toString().replace(/[^\d;]/g, "")) || "",
-      ),
-      t.append("subject", "Формы квиза Jaecoo"),
-      t.append("requestUrl", location.href),
-      // @ts-ignore
-      t.append("sessionId", window.call_value);
-    let s = `https://api.calltouch.ru/calls-service/RestAPI/requests/62173/register/?${t.toString()}`;
-    try {
-      const l = await (
-        await fetch(s, {
-          method: "GET",
-        })
-      ).text();
-      console.log("Успешная отправка, параметры:", t),
-        console.log("complete, url = ", s);
-    } catch (a) {
-      console.error("Ошибка при отправке запроса:", a);
-    }
-  }
-
-  async function sendAll(event: SubmitEvent) {
-    await sendMail(event);
-    await sendMailCalltouch(event);
-    isMailSent = true;
-  }
-
 </script>
 
 {#if !(selectedColor && selectedTradeIn && selectedPaymentMethod)}
