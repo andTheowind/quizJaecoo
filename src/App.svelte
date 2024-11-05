@@ -218,7 +218,7 @@
         letter-spacing: 1%;
         font-size: 16px;
         width: 100%;
-        max-width: 354px;
+        max-width: 100%;
         text-transform: uppercase;
         height: 70px;
       }
@@ -301,6 +301,14 @@
     }
   }
 
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .banner-content {
+      .banner-btn {
+        max-width: 336px;
+      }
+    }
+  }
+
   @media (min-width: 768px) {
     .reklama.fs-6,
     .txt-sm.fs-6 {
@@ -336,6 +344,10 @@
   @media (min-width: 992px) and (max-width: 1199.98px) {
     .banner-content {
       height: 100%;
+
+      .banner-btn {
+        height: 55px;
+      }
     }
   }
 

@@ -28,7 +28,7 @@
           <a
             href="tel:+78612032914"
             class="d-flex text-decoration-none c-yawhite">
-            <img src="./img/header-mark.svg" class="ms-2 ps-1 me-0 me-md-2" />
+            <img src="./img/header-mark.svg" class="ms-2 ps-1 me-1 me-md-2" />
             <span class="ms-1 d-inline-block text-white pe-3"
               >+7 (861) 203-29-14</span>
           </a>
@@ -41,7 +41,7 @@
             class="d-inline-flex w-auto pt-md-1">
             <img
               src="./img/header-phone.svg"
-              class="ms-2 ps-1 me-0 me-md-2 pt-md-1" />
+              class="ms-2 ps-1 me-1 me-md-2 pt-md-1" />
             <span
               class="ms-1 d-inline-flex d-md-inline flex-column text-white text-decoration-none pt-1">
               пос. Яблоновский,
@@ -134,14 +134,21 @@
       justify-content: flex-start !important;
       align-items: flex-start !important;
       flex-direction: column;
-      width: 50%;
+      width: 48%;
+
+      .logo-link {
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+      }
     }
 
     .second-header-block {
       margin-top: 24px;
       margin-bottom: 5px;
       flex-direction: column;
-      width: 50%;
+      width: 52%;
     }
 
     .logo-wrap-txt {
@@ -152,7 +159,7 @@
       display: flex;
       align-items: center;
       flex-direction: row-reverse;
-      justify-content: flex-start;
+      justify-content: flex-end;
 
       a {
         width: 100%;
@@ -170,6 +177,12 @@
   }
 
   @media (max-width: 479.98px) {
+    .second-header-block {
+      .header-group-blocks:first-child a {
+        align-items: center;
+      }
+    }
+
     .first-header-block .s-xs-14 {
       font-size: 14px;
     }
