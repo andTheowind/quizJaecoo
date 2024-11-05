@@ -21,13 +21,25 @@
             <div class="col-12">
               <div class="banner-content text-start">
                 <BannerTitle></BannerTitle>
-                <BannerList></BannerList>
                 <div class="banner-btn-wrap">
-                  <button
-                    class="text-uppcase banner-btn"
-                    on:click={() => (firstBanner = false)}>
-                    Подобрать автомобиль
-                  </button>
+                  <div class="container">
+                    <div
+                      class="row justify-content-between align-items-center align-items-lg-end">
+                      <div class="col-12 col-lg-4 px-0">
+                        <button
+                          class="text-uppcase banner-btn"
+                          on:click={() => (firstBanner = false)}>
+                          <span>Подобрать автомобиль</span>
+                        </button>
+                        <div class="text-start pt-1 pt-xl-2">
+                          <span class="d-block txt-sm fs-6 text-white">
+                            Реклама. "ООО Юг-Авто". 2Vtzqwb4rC4
+                          </span>
+                        </div>
+                      </div>
+                      <BannerList></BannerList>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -62,14 +74,14 @@
 
 <style lang="scss">
   .banner-wrapper {
-    background-color: #0e121d;
+    background-color: #191e18;
     position: relative;
   }
 
   .banner {
-    background-image: url("./img/first-banner.jpg");
+    background-image: url("./img/banner-lg-new-september2024-2.jpg?2");
     background-repeat: no-repeat;
-    background-position: 50% 50%;
+    background-position: 50% 59%;
     background-size: cover;
     min-height: calc(100vh - 88px);
     display: flex;
@@ -90,40 +102,16 @@
     }
   }
 
-  .banner::after,
-  .banner::before {
-    position: absolute;
-    content: " ";
-    opacity: 0.52;
-  }
-
-  .banner::after {
-    top: 0;
-    right: 0;
-    background-image: url("./img/el-banner-1.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 36%;
-    height: 36%;
-  }
-
-  .banner::before {
-    bottom: 0;
-    left: 0;
-    background-image: url("./img/el-banner-2.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 45%;
-    height: 33%;
-  }
-
   .banner-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color: #fff;
+    color: #000;
 
     .banner-btn-wrap {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
       margin-top: 25px;
       text-align: left;
       z-index: 3;
@@ -139,7 +127,12 @@
       max-width: 354px;
       text-transform: uppercase;
       height: 70px;
+      margin-bottom: 6px;
     }
+  }
+
+  .fw-bold {
+    font-family: "Dopis Bold";
   }
 
   .page {
@@ -153,13 +146,21 @@
       &.selected {
         display: block;
       }
-
       &:not(.selected) {
         display: none;
       }
     }
   }
 
+  @media (max-width: 991.98px) {
+    .banner-content {
+      .banner-btn-wrap {
+        .row {
+          flex-direction: column-reverse;
+        }
+      }
+    }
+  }
 
   @media (max-width: 767.98px) {
     .disclamer-wrapper {
@@ -170,12 +171,21 @@
       text-align: left;
     }
 
+    .banner-wrapper {
+      position: relative;
+    }
+
     .banner {
-      background-image: url("./img/first-banner-tb.jpg");
+      background-image: url("./img/banner-tablet-september2024-new-TB-2.jpg?2");
       background-repeat: no-repeat;
       background-size: 100%;
       background-position: 40% 63%;
+      min-height: calc(100vh - 122px);
       max-height: 730px;
+
+      > .container {
+        padding: 0;
+      }
     }
 
     .banner::after {
@@ -195,6 +205,7 @@
     .banner-content {
       height: 100%;
       justify-content: space-between;
+      padding-bottom: 4px;
 
       .banner-btn-wrap {
         margin-top: 4px;
@@ -212,6 +223,11 @@
         height: 70px;
       }
     }
+
+    .reklama.fs-6,
+    .txt-sm.fs-6 {
+      font-size: 12px !important;
+    }
   }
 
   @media (max-width: 479.98px) {
@@ -220,10 +236,10 @@
     }
 
     .banner {
-      background-image: url("./img/first-banner-sm.jpg");
+      background-image: url("./img/banner-sm-september2024-last-new-sm-2.jpg?2");
       background-repeat: no-repeat;
       background-size: cover;
-      background-position: 50% 100%;
+      background-position: 50% 63%;
       max-height: 610px;
       // min-height: calc(100vh - 160px);
 
@@ -239,16 +255,22 @@
           max-width: 100%;
           height: 48px;
           font-size: 14px;
+          margin-top: 5px;
         }
       }
     }
 
     .banner-content {
       .banner-btn-wrap {
-        margin-top: -12px;
+        margin-top: 8px;
         margin-bottom: 7px;
         padding-bottom: 4px;
       }
+    }
+
+    .reklama.fs-6,
+    .txt-sm.fs-6 {
+      font-size: 10.5px !important;
     }
   }
 
@@ -260,31 +282,48 @@
 
   @media (min-width: 480px) and (max-width: 599.98px) {
     .banner {
-      background-position: 40% 100%;
+      background-position: 40% 58%;
+    }
+  }
+
+  @media (min-width: 600px) and (max-width: 767.98px) {
+    .banner {
+      background-position: 40% 53%;
     }
   }
 
   @media (min-width: 768px) and (max-width: 850.98px) {
     .banner {
-      background-image: url("./img/first-banner.jpg");
+      background-image: url("./img/banner-lg-new-september2024-2.jpg?2");
       background-repeat: no-repeat;
       background-size: cover;
-      background-position: 36% 54%;
+      background-position: 36% 57%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .reklama.fs-6,
+    .txt-sm.fs-6 {
+      font-size: 13px !important;
     }
   }
 
   @media (min-width: 851px) and (max-width: 991.98px) {
     .banner {
-      background-image: url("./img/first-banner.jpg");
+      background-image: url("./img/banner-lg-new-september2024-2.jpg?2");
       background-repeat: no-repeat;
       background-size: cover;
-      background-position: 28% 52%;
+      background-position: 28% 72%;
     }
   }
 
   @media (min-width: 768px) and (max-width: 991.98px) {
     .banner {
       min-height: calc(100vh - 133px);
+
+      .banner-content {
+        height: 100%;
+      }
     }
   }
 
@@ -294,24 +333,38 @@
     }
   }
 
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    .banner-content {
+      height: 100%;
+    }
+  }
+
   @media (min-width: 1200px) and (max-width: 1919.98px) {
     .banner {
       .banner-btn-wrap {
         margin-top: 15px;
       }
-    }
-  }
-
-  @media (min-width: 1200px) and (max-width: 1919.98px) {
-    
-    .banner {
       .banner-content {
         height: 100%;
-        justify-content: space-around;
+        justify-content: space-between;
         padding-bottom: 20px;
       }
     }
+  }
 
+  @media (min-width: 1440px) {
+    .banner {
+      .banner-content {
+        height: 100%;
+        .banner-btn {
+          font-size: 18px;
+          height: 79px;
+          span {
+            padding-block: 12px;
+          }
+        }
+      }
+    }
   }
 
   @media (min-width: 1920px) {
@@ -321,5 +374,4 @@
       }
     }
   }
-
 </style>

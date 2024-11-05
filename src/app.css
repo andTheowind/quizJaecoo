@@ -10,9 +10,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-
-}
+html {}
 
 body {
   margin: 0;
@@ -70,7 +68,7 @@ button:focus-visible {
 }
 
 
-.banner .container .row > div {
+.banner .container .row>div {
   flex-grow: 1;
 }
 
@@ -85,11 +83,9 @@ button:focus-visible {
   cursor: pointer;
   transition: background 0.3s ease;
   margin-right: 12px;
-  background: linear-gradient(
-    to bottom,
-    var(--secondary-color) 50%,
-    var(--primary-color) 50%
-  );
+  background: linear-gradient(to bottom,
+      var(--secondary-color) 50%,
+      var(--primary-color) 50%);
 
 }
 
@@ -148,9 +144,46 @@ button:focus-visible {
   transform-origin: left bottom;
 }
 
+.selected label .car-model-btn-wrap {
+  border-color: #000 !important;
 
+}
 
+.selected label .car-model-btn-wrap img {
+  /* filter: brightness(40%);
+  max-width: 100%;
+  -webkit-mask:
+    linear-gradient(#fff, #fff) top,
+    url(https://i.ibb.co/5WvbqgG/zmylJ.png) bottom;
+  -webkit-mask-size:
+    100% calc(100% - 30px),
+    auto 30px;
+  -webkit-mask-repeat: repeat-x;
+  mask:
+    linear-gradient(#fff, #fff) top,
+    url(https://i.ibb.co/5WvbqgG/zmylJ.png) bottom;
+  mask-size:
+    100% calc(100% - 30px),
+    auto 30px;
+  mask-repeat: repeat-x; */
 
+}
+
+/* .quiz-step div>div>div:last-child {
+  max-width: 500px;
+} */
+
+.quiz-step div>.card-title {
+  padding-top: 0 !important;
+}
+
+.pages .row div .quiz-step div>div:last-child label,
+.pages .row div:nth-child(2) .quiz-step div>label:last-child,
+.pages .row div:nth-child(3) .quiz-step div>label:last-child,
+.pages .row div:nth-child(4) .quiz-step div>label:last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
 
 .page .card label {
   cursor: pointer;
@@ -231,13 +264,12 @@ button:focus-visible {
   display: none;
 }
 
-#choosed .card ~ .text-start  {
+#choosed .card~.text-start {
   font-family: "Dopis Bold";
   text-transform: uppercase;
 }
 
 @media (max-width: 991.98px) {
-
   #choosed .card .row {
     display: none;
   }
@@ -250,27 +282,25 @@ button:focus-visible {
   #choosed .card-title {
     margin-bottom: 0;
   }
-
-
 }
 
-
 @media (max-width: 991.98px) {
-  #choosed .row > div:not(:last-child) {
+  #choosed .row>div:not(:last-child) {
     padding-bottom: 25px;
   }
-  #choosed .row > div:not(:last-child) > div:last-child {
+
+  #choosed .row>div:not(:last-child)>div:last-child {
     border-bottom: 1px solid rgb(171, 187, 190);
     padding-top: 8px;
     padding-bottom: 15px;
   }
-  #choosed .row > div:last-child > div:last-child {
+
+  #choosed .row>div:last-child>div:last-child {
     padding-top: 8px;
   }
 }
 
 @media (max-width: 767.98px) {
-
   #choosed .card-title p {
     max-width: 100%;
     font-size: 12px !important;
@@ -291,7 +321,6 @@ button:focus-visible {
     font-family: 'Dopis Bold';
     font-size: 13px !important;
   }
-
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
@@ -300,46 +329,48 @@ button:focus-visible {
   }
 }
 
-@media (min-width: 992px)  {
-
-  #choosed .row > div:not(:last-child) {
+@media (min-width: 992px) {
+  #choosed .row>div:not(:last-child) {
     border-right: 1px solid rgb(171, 187, 190);
   }
-
 }
 
-@media (min-width: 1280px)  {
-  #choosed .row > div {
+@media (min-width: 1280px) {
+  #choosed .row>div {
     padding: 0 0 0 25px;
   }
+
   #choosed .card-title {
     margin-bottom: 12px;
   }
 }
 
 @media (min-width: 1400px) {
-    .container, 
-    .container-lg, 
-    .container-md, 
-    .container-sm, 
-    .container-xl, 
-    .container-xxl {
-        max-width: 1360px;
-    }
-    #choosed .row > div {
-      padding: 0 0 0 40px;
-    }
+
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1360px;
+  }
+
+  #choosed .row>div {
+    padding: 0 0 0 40px;
+  }
 }
 
 @media (min-width: 1540px) {
-    .container, 
-    .container-lg, 
-    .container-md, 
-    .container-sm, 
-    .container-xl, 
-    .container-xxl {
-        max-width: 1420px;
-    }
+
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1420px;
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -356,4 +387,3 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-

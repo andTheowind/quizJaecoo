@@ -33,6 +33,11 @@
   let goNext: () => boolean;
   let goPrevious: () => boolean;
 
+  let isModelError = false;
+  let isColorError = false;
+  let isTradeInError = false;
+  let isPaymentMethodError = false;
+
   export let selectedModel: string | undefined = undefined;
   export let selectedColor: string | undefined = undefined;
   export let selectedTradeIn: string | undefined = undefined;
@@ -71,22 +76,38 @@
 
   function onModelChange(event?: any) {
     selectedModel = selectedModel;
+    isModelError = false;
     goNext();
   }
 
   function onColorChange(event?: any) {
-    selectedColor = selectedColor;
-    goNext();
+    if (selectedModel) {
+      selectedColor = selectedColor;
+      isColorError = false;
+      goNext();
+    } else {
+      isModelError = true;
+    }
   }
 
   function onTradeInChange(event?: any) {
-    selectedTradeIn = event.detail.event;
-    goNext();
+    if (selectedColor) {
+      selectedTradeIn = event.detail.event;
+      isTradeInError = false;
+      goNext();
+    } else {
+      isColorError = true;
+    }
   }
 
   function onPaymentMethodChange(event?: any) {
-    selectedPaymentMethod = event.detail.event || "";
-    goNext();
+    if (selectedTradeIn) {
+      selectedPaymentMethod = event.detail.event || "";
+      isPaymentMethodError = false;
+      goNext();
+    } else {
+      isPaymentMethodError = true;
+    }
   }
   let isMailSent = false;
 </script>
@@ -98,7 +119,10 @@
         <Pager bind:canGoNext bind:canGoPrevious bind:goNext bind:goPrevious>
           <Page let:pageSelected>
             <div class="col-lg-3">
-              <div class="quiz-step" class:active={pageSelected}>
+              <div
+                class="quiz-step"
+                class:active={pageSelected}
+                class:error={isModelError}>
                 <CardDefaultColumns>
                   <CardHeader index={1} title="Выберите модель" />
                   <PageLines total={4} active={1} />
@@ -116,7 +140,10 @@
           </Page>
           <Page let:pageSelected>
             <div class="col-lg-3">
-              <div class="quiz-step" class:active={pageSelected}>
+              <div
+                class="quiz-step"
+                class:active={pageSelected}
+                class:error={isColorError}>
                 <CardDefaultColumns>
                   <CardHeader index={2} title="Выберите цвет" />
                   <PageLines total={4} active={2} />
@@ -134,7 +161,10 @@
             <div class="row">
               <Page let:pageSelected>
                 <div class="col-lg-6">
-                  <div class="quiz-step" class:active={pageSelected}>
+                  <div
+                    class="quiz-step"
+                    class:active={pageSelected}
+                    class:error={isTradeInError}>
                     <CardDefaultColumns>
                       <CardHeader
                         index={3}
@@ -157,7 +187,10 @@
               </Page>
               <Page let:pageSelected>
                 <div class="col-lg-6">
-                  <div class="quiz-step" class:active={pageSelected}>
+                  <div
+                    class="quiz-step"
+                    class:active={pageSelected}
+                    class:error={isPaymentMethodError}>
                     <CardDefaultColumns>
                       <CardHeader
                         index={4}
@@ -267,96 +300,14 @@
               </div>
             </div>
           {:else}
-          {#await CarInfoStore.getModelByName(selectedModel) then carInfo}
-            <FinalText amountCars={carInfo?.amountCars} ></FinalText>
-          {/await}
+            {#await CarInfoStore.getModelByName(selectedModel) then carInfo}
+              <FinalText amountCars={carInfo?.amountCars}></FinalText>
+            {/await}
             <MailSender
               bind:color={selectedColor}
               bind:tradeIn={selectedTradeIn}
               bind:paymentMethod={selectedPaymentMethod}
               bind:isMailSent />
-            <!---
-              <div class="final-form-wrap mt-4">
-                <form
-                  on:submit|preventDefault={sendAll}
-                  id="finalForm"
-                  class="finalForm">
-                  <div>
-                    <input
-                      type="hidden"
-                      class="w-100"
-                      name="valueColorCar"
-                      id="valueSelectedColorCar"
-                      bind:value={selectedColor} />
-                    <input
-                      type="hidden"
-                      class="w-100"
-                      name="valueTradeIn"
-                      id="valueSelectedTradeIn"
-                      bind:value={selectedTradeIn} />
-                    <input
-                      type="hidden"
-                      class="w-100"
-                      name="valuePayment"
-                      id="valueSelectedPayment"
-                      bind:value={selectedPaymentMethod} />
-                  </div>
-                  <div class="me-0 me-lg-3 mb-2 mb-lg-3 pb-1 pb-lg-0">
-                    <input
-                      type="text"
-                      class="w-100 mb-0"
-                      name="name"
-                      id="name"
-                      placeholder="Имя"
-                      required />
-                  </div>
-                  <div class="me-0 me-lg-3 mb-2 mb-lg-2 pb-1 pb-lg-0">
-                    <input
-                      name="phone"
-                      id="phone"
-                      {value}
-                      use:imask={options}
-                      on:input={(event) =>
-                        accept({ detail: { maskRef: event.target } })} />
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <div
-                      class="d-flex flex-column me-0 me-sm-1 me-lg-2 pt-1 pt-md-0">
-                      <label class="s12 agree-label" for="agree">
-                        <input
-                          type="checkbox"
-                          class="agree-policy"
-                          id="agree"
-                          required />
-                        <span>
-                          Я соглашаюсь на обработку
-                          <a href="./policy.php">персональных данных</a>
-                        </span>
-                      </label>
-                      <label class="s12 agree-label" for="marketing">
-                        <input
-                          type="checkbox"
-                          class="agree-policy"
-                          id="marketing"
-                          required />
-                        <span>
-                          Я соглашаюсь на
-                          <a href="./agreement.php">рекламную коммуникацию</a>
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="ms-0 ms-lg-1 ms-lg-0">
-                    <button
-                      type="submit"
-                      class="w-100 border-0 text-uppercase"
-                      id="finalButton">
-                      <span class="py-2 ps-2 pe-3 me-1">Получить подборку</span>
-                    </button>
-                  </div>
-                </form>
-              </div>
-            --->
           {/if}
         </div>
       </div>
@@ -421,11 +372,6 @@
       </div>
       <div class="row text-start">
         <div class="col mt-5 pt-4">
-          <!-- 
-            <a href="./legal.php" class="h5 text-decoration-underline pt-4">
-              Политика конфиденциальности
-            </a>
-          -->
           <DisclamerForm></DisclamerForm>
         </div>
       </div>
@@ -434,47 +380,119 @@
 {/if}
 
 <style lang="scss">
+  .quiz-step {
+    opacity: 0.5;
+
+    &.active {
+      opacity: 1;
+    }
+
+    @media (max-width: 991.98px) {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+
+  .error {
+    border: 1px solid red;
+  }
+
   .controls {
     display: flex;
     justify-content: space-between;
+    border-top: 1px solid #c0ccce;
 
     .bg-yawhite {
       background-color: #fff;
     }
+
     button {
       color: #000;
-    }
-    button:disabled {
-      color: #abbbbe;
 
-      img {
-        opacity: 0.4;
+      &:disabled {
+        color: #abbbbe;
+
+        img {
+          opacity: 0.4;
+        }
       }
+    }
+
+    .next-button:last-child {
+      display: none;
     }
   }
 
   .preview-img-wrap {
     display: flex;
     justify-content: flex-end;
+
+    @media (min-width: 1440px) {
+      img {
+        min-width: 671px;
+      }
+    }
+
+    @media (min-width: 1200px) and (max-width: 1919.98px) {
+      max-width: 686px;
+      margin-left: auto;
+      padding-right: 15px;
+    }
   }
+
   .final-info-wrap {
   }
 
-  .final-name-car span {
-    color: rgb(171, 187, 190);
-    font-size: 86px;
-    font-weight: 700;
-    font-family: "Dopis Bold";
-    line-height: 112px;
-    letter-spacing: 0%;
-    text-align: left;
-    text-transform: uppercase;
+  .final-name-car {
+    span {
+      color: rgb(171, 187, 190);
+      font-size: 86px;
+      font-weight: 700;
+      font-family: "Dopis Bold";
+      line-height: 112px;
+      letter-spacing: 0%;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 1199.98px) {
+      span {
+        font-size: 72px;
+      }
+    }
+
+    @media (max-width: 850.98px) {
+      span {
+        font-size: 60px;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      span {
+        font-size: 45px;
+      }
+    }
   }
-  
+
   .choosed {
     background: #f6f7f7;
     padding-top: 75px;
     padding-bottom: 70px;
+
+    .card-title {
+      margin-bottom: 0;
+    }
+
+    .selected-card-wrap {
+      padding-bottom: 14px;
+    }
+
+    @media (max-width: 991.98px) {
+      padding: 18px 0 25px 0;
+    }
   }
 
   .page {
@@ -494,82 +512,17 @@
     }
   }
 
-  @media (max-width: 1199.98px) {
-    .final-name-car span {
-      font-size: 72px;
-    }
-  }
-
-  @media (max-width: 991.98px) {
-    .quiz-step {
-      display: none;
-    }
-    .quiz-step.active {
-      display: block;
-    }
-    .final-image-wrap {
-      margin-top: 22px;
-    }
-    .controls {
-      border-top: 1px solid #c0ccce;
-    }
-    .controls > .next-button:last-child {
-      display: none;
-    }
-
-    .choosed {
-      padding: 18px 0 25px 0;
-
-      .card-title {
-        margin-bottom: 0;
-      }
-      .selected-card-wrap {
-        padding-bottom: 14px;
-      }
-    }
-  }
-
-  @media (max-width: 767.98px) {
-    .disclamer-wrapper {
-      display: none;
-    }
-    .disclamer-wrapper-mob {
-      text-align: left;
-    }
-    .final-name-car span {
-      font-size: 45px;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .disclamer-wrapper-mob {
+  .disclamer-wrapper {
+    @media (max-width: 767.98px) {
       display: none;
     }
   }
 
-  @media (min-width: 768px) and (max-width: 850.98px) {
-    .final-name-car span {
-      font-size: 60px;
-    }
-  }
+  .disclamer-wrapper-mob {
+    text-align: left;
 
-  @media (min-width: 851px) and (max-width: 991.98px) {
-    .final-name-car span {
-      font-size: 62px;
-    }
-  }
-
-  @media (min-width: 1200px) and (max-width: 1919.98px) {
-    .preview-img-wrap {
-      max-width: 686px;
-      margin-left: auto;
-      padding-right: 15px;
-    }
-  }
-
-  @media (min-width: 1440px) {
-    .preview-img-wrap img {
-      min-width: 671px;
+    @media (min-width: 768px) {
+      display: none;
     }
   }
 </style>

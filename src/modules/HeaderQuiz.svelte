@@ -39,7 +39,9 @@
             href="https://yandex.ru/maps/35/krasnodar/?ll=38.944918%2C44.974635&amp;mode=routes&amp;rtext=~44.974635%2C38.944918&amp;rtt=auto&amp;ruri=~ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNTk4ODgyNjg4EnjQoNC-0YHRgdC40Y8sINCg0LXRgdC_0YPQsdC70LjQutCwINCQ0LTRi9Cz0LXRjywg0LDRg9C7INCi0LDRhdGC0LDQvNGD0LrQsNC5LCDQmtGA0LDRgdC90L7QtNCw0YDRgdC60LDRjyDRg9C70LjRhtCwLCAzLzEiCg3UxxtCFeHlM0I%2C&amp;z=15.27"
             target="_blank"
             class="d-inline-flex w-auto pt-md-1">
-            <img src="./img/header-phone.svg" class="ms-2 ps-1 me-0 me-md-2 pt-md-1" />
+            <img
+              src="./img/header-phone.svg"
+              class="ms-2 ps-1 me-0 me-md-2 pt-md-1" />
             <span
               class="ms-1 d-inline-flex d-md-inline flex-column text-white text-decoration-none pt-1">
               пос. Яблоновский,
@@ -63,6 +65,37 @@
 
   .logo-wrap-txt {
     text-align: left;
+
+    @media (max-width: 1199.98px) {
+      border-left: none !important;
+    }
+
+    @media (min-width: 1200px) {
+      position: relative;
+
+      div {
+        padding-left: 0.185rem;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: -3px;
+        width: 3px;
+        background-color: #0d171a;
+      }
+
+      &::before {
+        top: -2px;
+        height: 14px;
+      }
+
+      &::after {
+        bottom: -5px;
+        height: 10px;
+      }
+    }
   }
 
   .header-group-blocks .callback-btn,
@@ -74,12 +107,6 @@
   .header-wrap-icon {
     max-width: 22px;
     min-height: 22px;
-  }
-
-  @media (max-width: 1199.98px) {
-    .logo-wrap-txt {
-      border-left: none !important;
-    }
   }
 
   @media (max-width: 991.98px) {
@@ -103,11 +130,18 @@
 
     .first-header-block {
       margin-top: 2px;
+      display: flex;
+      justify-content: flex-start !important;
+      align-items: flex-start !important;
+      flex-direction: column;
+      width: 50%;
     }
 
     .second-header-block {
       margin-top: 24px;
       margin-bottom: 5px;
+      flex-direction: column;
+      width: 50%;
     }
 
     .logo-wrap-txt {
@@ -117,43 +151,21 @@
     .header-group-blocks {
       display: flex;
       align-items: center;
-    }
-
-    .second-header-block .header-group-blocks:first-child span {
-      padding-top: 3px;
-    }
-
-    .header-group-blocks span {
-      white-space: normal;
-      text-align: left;
-    }
-
-    .header-group-blocks,
-    .header-group-blocks a {
       flex-direction: row-reverse;
       justify-content: flex-start;
-    }
 
-    .header-group-blocks a {
-      width: 100%;
-    }
+      a {
+        width: 100%;
+      }
 
-    .first-header-block {
-      display: flex;
-      justify-content: flex-start !important;
-      align-items: flex-start !important;
-      flex-direction: column;
-      width: 50%;
-    }
+      span {
+        white-space: normal;
+        text-align: left;
+      }
 
-    .second-header-block {
-      flex-direction: column;
-    }
-
-    .second-header-block {
-      margin-top: 8px;
-      margin-bottom: 0;
-      width: 50%;
+      .header-group-blocks:first-child span {
+        padding-top: 3px;
+      }
     }
   }
 
@@ -172,26 +184,24 @@
   @media (max-width: 393.98px) {
     .first-header-block {
       padding-right: 0;
+      width: 47%;
+
+      .s-xs-14 {
+        font-size: 12px;
+      }
+
+      .s13 {
+        font-size: 11px !important;
+      }
     }
 
-    .first-header-block .s-xs-14 {
-      font-size: 12px;
-    }
-
-    .first-header-block .s13,
     .header-group-blocks a,
     .header-group-blocks span {
       font-size: 11px !important;
     }
 
-    .first-header-block {
-      width: 47%;
-    }
-
     .second-header-block {
       width: 53%;
-    }
-    .second-header-block {
       padding-left: 0;
     }
   }
@@ -212,10 +222,10 @@
 
     .second-header-block {
       width: 55%;
-    }
 
-    .second-header-block .header-group-blocks span.d-inline-block {
-      padding-right: 9px !important;
+      .header-group-blocks span.d-inline-block {
+        padding-right: 9px !important;
+      }
     }
   }
 
@@ -239,34 +249,7 @@
 
   @media (min-width: 1200px) {
     .b-l-yawhite {
-      border-left: 1px solid white;
-    }
-
-    .logo-wrap-txt div {
-      padding-left: 0.185rem;
-    }
-
-    .logo-wrap-txt {
-      position: relative;
-    }
-
-    .logo-wrap-txt::before,
-    .logo-wrap-txt::after {
-      content: "";
-      position: absolute;
-      left: -3px;
-      width: 3px;
-      background-color: #0d171a;
-    }
-
-    .logo-wrap-txt::before {
-      top: -2px;
-      height: 14px;
-    }
-
-    .logo-wrap-txt::after {
-      bottom: -5px;
-      height: 10px;
+      border-left: 1px solid #fff;
     }
   }
 </style>

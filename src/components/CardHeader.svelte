@@ -19,7 +19,7 @@
     padding: 5px 0;
     border-bottom: 1px solid rgb(192, 204, 206);
     margin-bottom: 40px;
-    padding-bottom: 30px; 
+    padding-bottom: 30px;
 
     p {
       text-align: left;
@@ -31,7 +31,7 @@
       font-size: 16.5px;
       font-weight: 700;
       line-height: 1.385;
-      font-family: 'Dopis Bold';
+      font-family: "Dopis Bold";
       padding-top: 4px;
       text-transform: uppercase;
     }
@@ -73,7 +73,6 @@
   }
 
   @media (max-width: 991.98px) {
-
     .card-title {
       border-bottom: none;
       margin-bottom: 0;
@@ -91,11 +90,9 @@
         padding-top: 6px;
       }
     }
-
   }
 
   @media (max-width: 767.98px) {
-
     .page {
       .card-title {
         p {
@@ -111,11 +108,9 @@
         font-size: 24px;
       }
     }
-    
   }
 
   @media (min-width: 992px) and (max-width: 1199.98px) {
-
     .card-title {
       p {
         font-size: 14px;
@@ -133,6 +128,5 @@
     .card-index {
       margin-right: 11px;
     }
-
   }
 </style>

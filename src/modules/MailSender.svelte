@@ -1,8 +1,10 @@
 <script lang="ts">
+  import "../types/ya-metrika.d.ts";
   import { imask } from "@imask/svelte";
-  import  ActionButton from "../components/ActionButton.svelte";
+  import ActionButton from "../components/ActionButton.svelte";
 
-  const callTouchApiUrl = "https://api.calltouch.ru/calls-service/RestAPI/requests/62173/register/";
+  const callTouchApiUrl =
+    "https://api.calltouch.ru/calls-service/RestAPI/requests/62173/register/";
   const mailApiUrl = "./send.php";
 
   export let color: string;
@@ -13,15 +15,37 @@
   let agreeProcessing = false;
   let agreeCommunication = false;
 
-  // let errors: string[] = [];
-
   let fullName = "";
   let phoneNumber = "";
+
+  let fullNameError = false;
+  let phoneNumberError = false;
+  let agreeError = false;
+  let marketingError = false;
+
   $: phoneNumber = phoneNumber.replace(/[^\d;]/g, "");
   const phoneNumberOptions = {
     mask: "+{7}(000) 000-00-00",
     lazy: false,
   };
+
+  // Для обновления состояния ошибок
+  function updateErrorState(field: string, value: string | boolean) {
+    switch (field) {
+      case "fullName":
+        fullNameError = !(value as string).trim();
+        break;
+      case "phoneNumber":
+        phoneNumberError = !(value as string).trim();
+        break;
+      case "agreeProcessing":
+        agreeError = !value;
+        break;
+      case "agreeCommunication":
+        marketingError = !value;
+        break;
+    }
+  }
 
   const objectToFormData = (data: { [key: string]: any }): FormData => {
     const formData = new FormData();
@@ -30,6 +54,13 @@
     }
     return formData;
   };
+
+  function validateInputs() {
+    fullNameError = fullName.trim() === "";
+    phoneNumberError = phoneNumber.trim() === "";
+    agreeError = !agreeProcessing;
+    marketingError = !agreeCommunication;
+  }
 
   async function sendMail(): Promise<boolean> {
     const response = await fetch(mailApiUrl, {
@@ -65,17 +96,28 @@
     if (!response.ok) {
       console.error("Ошибка при отправке запроса");
       return false;
+    } else {
+      console.log("Отправлен запрос на Calltouch");
     }
-    console.log("Успешная отправка, параметры: ", requestUrl);
     return true;
   }
 
   async function sendAll() {
+    validateInputs();
+
+    if (fullNameError || phoneNumberError || agreeError || marketingError) {
+      return;
+    }
     if (!agreeProcessing || !agreeCommunication) return;
+
     const mailOk = await sendMail();
     const callTouchOk = await sendCallTouch();
 
     isMailSent = mailOk && callTouchOk;
+
+    if (isMailSent) {
+      ym(95046320, "reachGoal", "form_quiz");
+    }
   }
 </script>
 
@@ -84,19 +126,22 @@
     <div class="me-0 me-lg-3 mb-2 mb-lg-3 pb-1 pb-lg-0">
       <input
         type="text"
-        class="w-100 mb-0"
+        class:border-danger={fullNameError}
         name="name"
         id="name"
         placeholder="Имя"
         bind:value={fullName}
+        on:input={() => updateErrorState("fullName", fullName)}
         required />
     </div>
     <div class="me-0 me-lg-3 mb-2 mb-lg-2 pb-1 pb-lg-0">
       <input
+        class:border-danger={phoneNumberError}
         name="phone"
         id="phone"
         bind:value={phoneNumber}
         use:imask={phoneNumberOptions}
+        on:input={() => updateErrorState("phoneNumber", phoneNumber)}
         required />
     </div>
     <div class="d-flex align-items-center">
@@ -104,9 +149,11 @@
         <label class="s12 agree-label" for="agree">
           <input
             type="checkbox"
-            bind:value={agreeProcessing}
-            class="agree-policy"
+            bind:checked={agreeProcessing}
+            class:border-danger={agreeError}
             id="agree"
+            on:change={() =>
+              updateErrorState("agreeProcessing", agreeProcessing)}
             required />
           <span>
             Я соглашаюсь на обработку
@@ -116,9 +163,11 @@
         <label class="s12 agree-label" for="marketing">
           <input
             type="checkbox"
-            bind:value={agreeCommunication}
-            class="agree-policy"
+            bind:checked={agreeCommunication}
+            class:border-danger={marketingError}
             id="marketing"
+            on:change={() =>
+              updateErrorState("agreeCommunication", agreeCommunication)}
             required />
           <span>
             Я соглашаюсь на
@@ -140,15 +189,67 @@
 </div>
 
 <style lang="scss">
-
   #finalForm {
     text-align: left;
+
+    div {
+      > input,
+      #name {
+        border-width: 2px;
+        background-color: transparent !important;
+      }
+    }
+
+    #name {
+      width: 100%;
+      margin-bottom: 0;
+      color: #919191;
+    }
+
+    .border-danger#agree,
+    .border-danger#marketing {
+      outline: 2px solid rgba(var(--bs-danger-rgb), var(--bs-border-opacity));
+    }
+
+    label {
+      input {
+        cursor: pointer;
+      }
+    }
 
     #agree,
     #marketing {
       margin-bottom: auto;
       padding-top: 3px;
       margin-top: 1px;
+      margin-right: 4px;
+    }
+
+    @media (max-width: 991.98px) {
+      input:not([type="checkbox"]),
+      #finalButton {
+        height: 40px;
+        font-size: 13px;
+        padding: 0px 17px;
+      }
+
+      input::placeholder {
+        font-size: 13px;
+      }
+
+      #finalButton {
+        max-width: 100%;
+      }
+
+      span {
+        padding-top: 1px;
+      }
+    }
+
+    @media (max-width: 479.98px) {
+      #finalButton {
+        margin-top: 8px;
+      }
     }
   }
 
@@ -162,44 +263,17 @@
     span {
       padding: 0px 0 1px 3px;
     }
+
     a {
       color: #00657b;
     }
-  }
 
-  @media (max-width: 991.98px) {
-    #finalForm {
-
-      input:not([type="checkbox"]),
-      #finalButton {
-        height: 40px;
-        font-size: 13px;
-        padding: 0px 17px 0 17px;
-      }
-      input::placeholder {
-        font-size: 13px;
-      }
-      #finalButton {
-        max-width: 100%;
-      }
-      span {
-        padding-top: 1px;
-      }
-    }
-  }
-
-  @media (max-width: 479.98px) {
-    #finalForm {
-      #finalButton {
-        margin-top: 8px;
-      }
-    }
-    .agree-label {
-
+    @media (max-width: 479.98px) {
       input {
         margin-right: 2px;
         margin-bottom: auto;
       }
+
       span {
         display: inline-block;
         padding-left: 0;
@@ -210,13 +284,11 @@
   }
 
   @media (min-width: 768px) and (max-width: 991.98px) {
-    #finalForm {
-      #finalButton {
-        height: 56px;
-        font-size: 16px;
-        max-width: 520px;
-        padding: 0px 17px 0 17px;
-      }
+    #finalForm #finalButton {
+      height: 56px;
+      font-size: 16px;
+      max-width: 520px;
+      padding: 0px 17px;
     }
   }
 </style>

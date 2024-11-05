@@ -1,6 +1,5 @@
 <script lang="ts">
   export let amountCars: number = 0;
-
 </script>
 
 <div class="final-text">

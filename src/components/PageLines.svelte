@@ -25,16 +25,13 @@
     &:first-child {
       margin-left: 0;
     }
-
     &:last-child {
       margin-right: 0;
     }
-
     &.active {
-      background-color: #ABBBBE;
+      background-color: #abbbbe;
     }
   }
-
 
   @media (min-width: 992px) {
     .lines {

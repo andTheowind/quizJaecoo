@@ -23,42 +23,32 @@
 </div>
 
 <style lang="scss">
-
   .card {
-  
     .variants {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
     }
-
   }
 
   .line {
     height: 5px;
     width: 100%;
-    background-color: #ABBBBE;
-  }
+    background-color: #abbbbe;
 
-  .line.line-active {
-    background-color: #054856;
+    &.line-active {
+      background-color: #054856;
+    }
   }
 
   @media (min-width: 992px) {
-
     .page {
-
       .card {
-    
         .variants {
-          border-top: 1px solid #C0CCCE;
+          border-top: 1px solid #c0ccce;
           padding-top: 20px;
         }
-
       }
-
     }
-
   }
-
 </style>

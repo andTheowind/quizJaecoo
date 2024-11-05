@@ -15,8 +15,7 @@
 
 <label
   class="d-flex align-items-center variant-wrap mb-lg-3 pb-1"
-  class:pressed-btn={!disabled}
->
+  class:pressed-btn={!disabled}>
   <div>
     <input
       class="variant"
@@ -25,7 +24,9 @@
       style="--primary-color: {primaryColor}; --secondary-color: {secondaryColor}; --tick-color: {tickColor};"
       checked={!disabled} />
   </div>
-  <span class="d-inline-block text-start ps-1 ms-2 mt-1 pt-1 pt-lg-2 pb-1 pb-lg-2">{displayName}</span>
+  <span
+    class="d-inline-block text-start ps-1 ms-2 mt-1 pt-1 pt-lg-2 pb-1 pb-lg-2"
+    >{displayName}</span>
 </label>
 
 <style lang="scss">
@@ -44,6 +45,7 @@
       border-radius: 50%;
     }
   }
+
   .variant {
     appearance: none;
     position: relative;
@@ -67,8 +69,6 @@
       position: absolute;
       left: -2.5px;
       top: -2.5px;
-      bottom: 0;
-      right: 0;
       border-radius: inherit;
     }
 
@@ -89,22 +89,18 @@
       opacity: 0;
       left: 0;
       top: 0;
-      height: 50%;
       width: 100%;
       height: 100%;
     }
 
     &:checked::after {
       top: 70%;
-      bottom: 0%; 
       height: 2px;
       width: 55%;
       left: -0.5px;
       background-color: var(--tick-color);
       transform: translateX(10px) rotate(-55deg);
       transform-origin: left bottom;
-      border-radius: 0;
-      border: 0;
       opacity: 1;
     }
 
@@ -114,7 +110,7 @@
   }
 
   .pressed-btn {
-    background-color: #ABBBBE;
+    background-color: #abbbbe;
     transition: 0.85s;
   }
 
@@ -126,8 +122,8 @@
         font-size: 13.5px;
       }
     }
-
   }
+
   @media (max-width: 991.98px) {
     .variant-wrap {
       margin-bottom: 10px;
