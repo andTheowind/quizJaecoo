@@ -24,6 +24,7 @@
 
 <style lang="scss">
   .car-model-btn-wrap {
+    cursor: pointer;
     border: 1px solid rgb(171, 187, 190);
   }
 

@@ -16,7 +16,6 @@ body {
   margin: 0;
   display: flex;
   font-family: 'Dopis';
-  min-width: 320px;
   min-height: 100vh;
 }
 
@@ -35,9 +34,7 @@ h1 {
 }
 
 #app {
-  /* max-width: 1280px; */
   margin: 0 auto;
-  /* padding: 2rem; */
   text-align: center;
   width: 100%;
 }
@@ -149,29 +146,13 @@ button:focus-visible {
 
 }
 
-.selected label .car-model-btn-wrap img {
-  /* filter: brightness(40%);
-  max-width: 100%;
-  -webkit-mask:
-    linear-gradient(#fff, #fff) top,
-    url(https://i.ibb.co/5WvbqgG/zmylJ.png) bottom;
-  -webkit-mask-size:
-    100% calc(100% - 30px),
-    auto 30px;
-  -webkit-mask-repeat: repeat-x;
-  mask:
-    linear-gradient(#fff, #fff) top,
-    url(https://i.ibb.co/5WvbqgG/zmylJ.png) bottom;
-  mask-size:
-    100% calc(100% - 30px),
-    auto 30px;
-  mask-repeat: repeat-x; */
-
+.quiz-step * {
+  pointer-events: none;
 }
 
-/* .quiz-step div>div>div:last-child {
-  max-width: 500px;
-} */
+.quiz-step.active * {
+  pointer-events: inherit;
+}
 
 .quiz-step div>.card-title {
   padding-top: 0 !important;
@@ -270,6 +251,7 @@ button:focus-visible {
 }
 
 @media (max-width: 991.98px) {
+
   #choosed .card .row {
     display: none;
   }
@@ -282,9 +264,11 @@ button:focus-visible {
   #choosed .card-title {
     margin-bottom: 0;
   }
+
 }
 
 @media (max-width: 991.98px) {
+
   #choosed .row>div:not(:last-child) {
     padding-bottom: 25px;
   }
@@ -298,9 +282,11 @@ button:focus-visible {
   #choosed .row>div:last-child>div:last-child {
     padding-top: 8px;
   }
+
 }
 
 @media (max-width: 767.98px) {
+
   #choosed .card-title p {
     max-width: 100%;
     font-size: 12px !important;
@@ -321,6 +307,7 @@ button:focus-visible {
     font-family: 'Dopis Bold';
     font-size: 13px !important;
   }
+
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -329,21 +316,27 @@ button:focus-visible {
   .banner-list>li:nth-child(3) {
     padding-left: 0 !important;
   }
+
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
+
   #choosed .card-title p {
     font-size: 15px;
   }
+
 }
 
 @media (min-width: 992px) {
+
   #choosed .row>div:not(:last-child) {
     border-right: 1px solid rgb(171, 187, 190);
   }
+
 }
 
 @media (min-width: 1280px) {
+
   #choosed .row>div {
     padding: 0 0 0 25px;
   }
@@ -351,6 +344,7 @@ button:focus-visible {
   #choosed .card-title {
     margin-bottom: 12px;
   }
+
 }
 
 @media (min-width: 1400px) {
@@ -367,6 +361,7 @@ button:focus-visible {
   #choosed .row>div {
     padding: 0 0 0 40px;
   }
+
 }
 
 @media (min-width: 1540px) {
@@ -379,6 +374,7 @@ button:focus-visible {
   .container-xxl {
     max-width: 1420px;
   }
+
 }
 
 @media (prefers-color-scheme: light) {
