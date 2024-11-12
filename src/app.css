@@ -3,7 +3,7 @@
   font-weight: 400;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #000;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -139,6 +139,13 @@ button:focus-visible {
   background-color: #000;
   transform: translateX(9px) rotate(-40deg);
   transform-origin: left bottom;
+}
+
+.row>div:first-child .selected label>div,
+.row>div:first-child .selected label>div button,
+.row>div:first-child .selected label>div img {
+  background-color: rgb(171, 187, 190);
+  mix-blend-mode: darken;
 }
 
 .selected label .car-model-btn-wrap {

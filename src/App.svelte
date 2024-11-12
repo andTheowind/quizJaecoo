@@ -74,12 +74,12 @@
 
 <style lang="scss">
   .banner-wrapper {
-    background-color: #191e18;
+    background-color: #000000;
     position: relative;
   }
 
   .banner {
-    background-image: url("./img/banner-lg-new-september2024-2.jpg?2");
+    background-image: url("./img/first-banner-new.jpg");
     background-repeat: no-repeat;
     background-position: 50% 59%;
     background-size: cover;
@@ -176,11 +176,11 @@
     }
 
     .banner {
-      background-image: url("./img/banner-tablet-september2024-new-TB-2.jpg?2");
+      background-image: url("./img/first-banner-new-tb.jpg");
       background-repeat: no-repeat;
       background-size: 100%;
       background-position: 40% 63%;
-      min-height: calc(100vh - 122px);
+      min-height: calc(100vh - 119px);
       max-height: 730px;
 
       > .container {
@@ -209,8 +209,8 @@
 
       .banner-btn-wrap {
         margin-top: 4px;
-        margin-bottom: 15px;
-        padding-bottom: 14px;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
         text-align: left;
       }
 
@@ -236,12 +236,11 @@
     }
 
     .banner {
-      background-image: url("./img/banner-sm-september2024-last-new-sm-2.jpg?2");
+      background-image: url("./img/first-banner-new-sm.jpg");
       background-repeat: no-repeat;
       background-size: cover;
-      background-position: 50% 63%;
+      background-position: 50% 45%;
       max-height: 610px;
-      // min-height: calc(100vh - 160px);
 
       .banner-content {
         justify-content: space-around;
@@ -282,19 +281,19 @@
 
   @media (min-width: 480px) and (max-width: 599.98px) {
     .banner {
-      background-position: 40% 58%;
+      background-position: 40% 38%;
     }
   }
 
   @media (min-width: 600px) and (max-width: 767.98px) {
     .banner {
-      background-position: 40% 53%;
+      background-position: 40% 32%;
     }
   }
 
   @media (min-width: 768px) and (max-width: 850.98px) {
     .banner {
-      background-image: url("./img/banner-lg-new-september2024-2.jpg?2");
+      background-image: url("./img/first-banner-new.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: 36% 57%;
@@ -318,7 +317,7 @@
 
   @media (min-width: 851px) and (max-width: 991.98px) {
     .banner {
-      background-image: url("./img/banner-lg-new-september2024-2.jpg?2");
+      background-image: url("./img/first-banner-new.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: 28% 72%;
@@ -337,7 +336,7 @@
 
   @media (min-width: 768px) and (max-width: 991.98px) {
     .banner {
-      min-height: calc(100vh - 134px);
+      min-height: calc(100vh - 136px);
     }
   }
 
