@@ -44,6 +44,18 @@
       height: auto;
       border-radius: 50%;
     }
+
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+      padding: 5px 12px 5px 13px;
+
+      span {
+        font-size: 13.5px;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      margin-bottom: 10px;
+    }
   }
 
   .variant {
@@ -112,22 +124,6 @@
   .pressed-btn {
     background-color: #abbbbe;
     transition: 0.85s;
-  }
-
-  @media (min-width: 992px) and (max-width: 1199.98px) {
-    .variant-wrap {
-      padding: 5px 12px 5px 13px;
-
-      span {
-        font-size: 13.5px;
-      }
-    }
-  }
-
-  @media (max-width: 991.98px) {
-    .variant-wrap {
-      margin-bottom: 10px;
-    }
   }
 
   @media (max-width: 479.98px) {

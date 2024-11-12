@@ -29,6 +29,19 @@ h1 {
   line-height: 1.1;
 }
 
+button {
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
 .card {
   padding: 2em;
 }
@@ -45,19 +58,6 @@ h1 {
 
 .s12 {
   font-size: 12px;
-}
-
-button {
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 .col-lg-8 .variant {
@@ -86,59 +86,61 @@ button:focus-visible {
 
 }
 
-.selected-card-el::after {
+.selected-card-el::after,
+.selected-card-el::before {
   position: absolute;
   content: ' ';
   background-color: var(--tick-color);
-  transform: translateX(11px) rotate(-55deg);
   transform-origin: left bottom;
+}
+
+.selected-card-el::after {
+  transform: translateX(11px) rotate(-55deg);
   top: 71%;
-  bottom: 0%;
   height: 2px;
   width: 56%;
   left: 1px;
 }
 
 .selected-card-el::before {
-  position: absolute;
-  content: ' ';
+  transform: translateX(9px) rotate(-40deg);
   left: 2px;
   top: 45%;
   height: 30%;
   width: 2px;
-  background-color: var(--tick-color);
-  transform: translateX(9px) rotate(-40deg);
-  transform-origin: left bottom;
 }
-
 
 .selected-card-el.border.border-dark {
   position: relative;
 }
 
-.selected-card-el.border.border-dark::after {
+.selected-card-el.border.border-dark::after,
+.selected-card-el.border.border-dark::before {
   position: absolute;
   content: ' ';
+  background-color: #000;
+  transform-origin: left bottom;
+}
+
+.selected-card-el.border.border-dark::after {
   top: 66%;
   bottom: 0%;
   height: 2px;
   width: 52%;
   left: 1px;
-  background-color: #000;
   transform: translateX(11px) rotate(-55deg);
-  transform-origin: left bottom;
 }
 
 .selected-card-el.border.border-dark::before {
-  position: absolute;
-  content: ' ';
   left: 2px;
   top: 45%;
   height: 32%;
   width: 2px;
-  background-color: #000;
   transform: translateX(9px) rotate(-40deg);
-  transform-origin: left bottom;
+}
+
+.row>div:first-child .selected label * {
+  transition: 0.85s;
 }
 
 .row>div:first-child .selected label>div,
@@ -150,7 +152,6 @@ button:focus-visible {
 
 .selected label .car-model-btn-wrap {
   border-color: #000 !important;
-
 }
 
 .quiz-step * {

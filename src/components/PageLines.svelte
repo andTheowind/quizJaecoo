@@ -14,28 +14,30 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-  }
+    padding-bottom: 1rem;
+    margin-bottom: 0.5rem;
 
-  .line {
-    background-color: #054856;
-    height: 5px;
-    margin: 0 2%;
-    width: 25%;
-
-    &:first-child {
-      margin-left: 0;
-    }
-    &:last-child {
-      margin-right: 0;
-    }
-    &.active {
-      background-color: #abbbbe;
-    }
-  }
-
-  @media (min-width: 992px) {
-    .lines {
+    @media (min-width: 992px) {
       display: none;
+    }
+
+    .line {
+      background-color: #054856;
+      height: 5px;
+      margin: 0 2%;
+      width: 25%;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &.active {
+        background-color: #abbbbe;
+      }
     }
   }
 </style>

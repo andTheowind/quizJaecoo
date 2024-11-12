@@ -44,6 +44,7 @@
         display: inline-block;
         max-width: 450px;
       }
+
       .text-effect {
         text-shadow:
           10px 0px 58.36px #0dcccf,
@@ -55,18 +56,16 @@
     .shadow-effect {
       font-size: 34px;
       font-weight: 700;
-      line-height: 0px;
+      line-height: 0;
       text-align: left;
       display: flex;
       border: 2px solid #00ffe1;
       box-shadow: 0px 0px 20px 0px rgb(0, 255, 225);
       border-radius: 10px;
 
-      h1 {
-        .h2 {
-          font-family: "Dopis Bold";
-          font-weight: 700;
-        }
+      h1 .h2 {
+        font-family: "Dopis Bold";
+        font-weight: 700;
       }
     }
 
@@ -79,7 +78,7 @@
       font-weight: 700;
       font-family: "Dopis Bold";
       line-height: 0.85;
-      padding: 10px 24px 0px 24px;
+      padding: 10px 24px 0px;
       margin-bottom: 0;
 
       .fw-normal {
@@ -125,7 +124,7 @@
       .h1 {
         font-size: 28px;
         line-height: 1;
-        padding: 7px 18px 0px 18px;
+        padding: 7px 18px 0;
       }
 
       .h2 {
@@ -159,41 +158,23 @@
         font-size: calc(1.175rem + 3.9vw);
       }
 
-      .shadow-effect-wrap {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
       .shadow-effect {
         box-shadow: 0px 0px 12px 0px rgb(0, 255, 225);
       }
 
-      .pt-xxl-desktp {
-        margin-top: 207px;
-      }
-
       .h1 {
         font-size: 24px;
-        margin-bottom: 0;
-        padding: 13px 14px 3px 14px;
+        padding: 13px 14px 3px;
         display: flex;
         align-items: center;
       }
 
       .h2 {
         font-size: 21px;
-        margin-bottom: 0;
         line-height: 1.25;
 
         span {
           font-size: 24px;
-        }
-      }
-
-      .h2 {
-        .h3 {
-          font-size: 16px;
         }
       }
 
@@ -246,12 +227,6 @@
         font-size: 15px;
         line-height: 26px;
       }
-
-      .shadow-effect-wrap {
-        .d-md-none {
-          max-width: 30%;
-        }
-      }
     }
 
     @media (max-width: 419.98px) {
@@ -281,22 +256,6 @@
       }
     }
 
-    @media (max-width: 405.98px) {
-      .h2 {
-        font-size: 16px;
-      }
-    }
-
-    @media (max-width: 374.98px) {
-      .h2 {
-        font-size: 15px;
-      }
-
-      .h2.second-title {
-        font-size: 21px;
-      }
-    }
-
     @media (max-width: 364.98px) {
       .h1 {
         font-size: 29px;
@@ -313,34 +272,6 @@
 
       .display-2 {
         font-size: calc(1rem + 3.7vw);
-      }
-    }
-
-    @media (min-width: 480px) and (max-width: 599.98px) {
-      padding-bottom: 0px;
-
-      .shadow-effect-wrap {
-        .d-md-none {
-          max-width: 36%;
-        }
-      }
-    }
-
-    @media (min-width: 600px) and (max-width: 767.98px) {
-      padding-bottom: 0px;
-
-      .shadow-effect-wrap {
-        .d-md-none {
-          max-width: 34%;
-        }
-      }
-    }
-
-    @media (min-width: 740px) and (max-width: 991.98px) {
-      .banner-content-title-friday {
-        span {
-          max-width: 660px;
-        }
       }
     }
 
@@ -403,19 +334,9 @@
       justify-content: space-between;
       margin-top: 18px;
 
-      .shadow-effect-wrap {
-        padding-top: 25px;
-      }
-
       .h1 {
         font-size: 56px;
         line-height: 0.7;
-      }
-    }
-
-    @media (min-width: 1920px) and (min-width: 1080px) {
-      .pt-xxl-desktp {
-        padding-top: 25px;
       }
     }
   }

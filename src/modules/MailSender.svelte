@@ -189,106 +189,116 @@
 </div>
 
 <style lang="scss">
-  #finalForm {
-    text-align: left;
+  .final-form-wrap {
+    margin-top: 1rem;
 
-    div {
-      > input,
-      #name {
+    #finalForm {
+      text-align: left;
+
+      #name,
+      #phone {
+        width: 100%;
+        margin-bottom: 0;
         border-width: 2px;
         background-color: transparent !important;
+        color: #919191;
+
+        &.border-danger {
+          outline: 2px solid
+            rgba(var(--bs-danger-rgb), var(--bs-border-opacity));
+        }
+      }
+
+      #agree,
+      #marketing {
+        margin-bottom: auto;
+        padding-top: 3px;
+        margin-top: 1px;
+        margin-right: 4px;
+        cursor: pointer;
+
+        &.border-danger {
+          outline: 2px solid
+            rgba(var(--bs-danger-rgb), var(--bs-border-opacity));
+        }
+      }
+
+      #finalButton {
+        width: 100%;
+        border: none;
+        text-transform: uppercase;
+
+        span {
+          padding: 0.5rem 0.75rem;
+        }
+      }
+
+      @media (max-width: 991.98px) {
+        #name,
+        #phone,
+        #finalButton {
+          height: 40px;
+          font-size: 13px;
+          padding: 0 17px;
+        }
+
+        #name::placeholder,
+        #phone::placeholder {
+          font-size: 13px;
+        }
+
+        span {
+          padding-top: 1px;
+        }
+      }
+
+      @media (max-width: 479.98px) {
+        #finalButton {
+          margin-top: 8px;
+        }
       }
     }
 
-    #name {
-      width: 100%;
-      margin-bottom: 0;
-      color: #919191;
-    }
+    .agree-label {
+      margin-left: 1px;
+      padding-top: 5px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
 
-    .border-danger#agree,
-    .border-danger#marketing {
-      outline: 2px solid rgba(var(--bs-danger-rgb), var(--bs-border-opacity));
-    }
-
-    label {
-      input {
+      input[type="checkbox"] {
+        margin-right: 4px;
         cursor: pointer;
       }
-    }
-
-    #agree,
-    #marketing {
-      margin-bottom: auto;
-      padding-top: 3px;
-      margin-top: 1px;
-      margin-right: 4px;
-    }
-
-    @media (max-width: 991.98px) {
-      input:not([type="checkbox"]),
-      #finalButton {
-        height: 40px;
-        font-size: 13px;
-        padding: 0px 17px;
-      }
-
-      input::placeholder {
-        font-size: 13px;
-      }
-
-      #finalButton {
-        max-width: 100%;
-      }
 
       span {
-        padding-top: 1px;
-      }
-    }
+        padding: 0 0 1px 3px;
 
-    @media (max-width: 479.98px) {
-      #finalButton {
-        margin-top: 8px;
-      }
-    }
-  }
-
-  .agree-label {
-    margin-left: 1px;
-    padding-top: 5px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
-    span {
-      padding: 0px 0 1px 3px;
-    }
-
-    a {
-      color: #00657b;
-    }
-
-    @media (max-width: 479.98px) {
-      input {
-        margin-right: 2px;
-        margin-bottom: auto;
+        a {
+          color: #00657b;
+        }
       }
 
-      span {
-        display: inline-block;
-        padding-left: 0;
-        padding-top: 6px;
-        padding-bottom: 0 !important;
+      @media (max-width: 479.98px) {
+        input[type="checkbox"] {
+          margin-right: 2px;
+        }
+
+        span {
+          display: inline-block;
+          padding-left: 0;
+          padding-top: 6px;
+          padding-bottom: 0 !important;
+        }
       }
     }
-  }
-
-  @media (min-width: 768px) and (max-width: 991.98px) {
-    #finalForm #finalButton {
-      height: 56px;
-      font-size: 16px;
-      max-width: 520px;
-      padding: 0px 17px;
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      #finalForm #finalButton {
+        height: 56px;
+        font-size: 16px;
+        max-width: 520px;
+        padding: 0 17px;
+      }
     }
   }
 </style>

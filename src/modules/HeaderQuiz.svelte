@@ -58,211 +58,183 @@
 </header>
 
 <style lang="scss">
-  .header a,
-  .header-group-blocks a {
-    text-decoration: none;
-  }
-
-  .logo-wrap-txt {
-    text-align: left;
-
-    @media (max-width: 1199.98px) {
-      border-left: none !important;
+  .header {
+    a,
+    .header-group-blocks a {
+      text-decoration: none;
     }
 
-    @media (min-width: 1200px) {
-      position: relative;
+    .logo-wrap-txt {
+      text-align: left;
 
-      div {
-        padding-left: 0.185rem;
+      @media (max-width: 1199.98px) {
+        border-left: none !important;
       }
 
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        left: -3px;
-        width: 3px;
-        background-color: #0d171a;
-      }
+      @media (min-width: 1200px) {
+        position: relative;
 
-      &::before {
-        top: -2px;
-        height: 14px;
-      }
+        div {
+          padding-left: 0.185rem;
+        }
 
-      &::after {
-        bottom: -5px;
-        height: 10px;
-      }
-    }
-  }
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          left: -3px;
+          width: 3px;
+          background-color: #0d171a;
+        }
 
-  .header-group-blocks .callback-btn,
-  .first-header-block .head-btn {
-    background-color: #00657b;
-    color: #fff;
-  }
+        &::before {
+          top: -2px;
+          height: 14px;
+        }
 
-  .header-wrap-icon {
-    max-width: 22px;
-    min-height: 22px;
-  }
-
-  @media (max-width: 991.98px) {
-    .second-header-block {
-      margin-top: 20px;
-      padding-bottom: 5px;
-    }
-
-    .first-header-block .s13,
-    .header-group-blocks a,
-    .header-group-blocks span {
-      font-size: 14px !important;
-    }
-  }
-
-  @media (max-width: 767.98px) {
-    .nowrap-sm,
-    .nowrap {
-      white-space: nowrap;
-    }
-
-    .first-header-block {
-      margin-top: 2px;
-      display: flex;
-      justify-content: flex-start !important;
-      align-items: flex-start !important;
-      flex-direction: column;
-      width: 48%;
-
-      .logo-link {
-        img {
-          max-width: 100%;
-          height: auto;
+        &::after {
+          bottom: -5px;
+          height: 10px;
         }
       }
     }
 
-    .second-header-block {
-      margin-top: 24px;
-      margin-bottom: 5px;
-      flex-direction: column;
-      width: 52%;
-    }
-
-    .logo-wrap-txt {
-      border-left: none;
-    }
-
     .header-group-blocks {
-      display: flex;
-      align-items: center;
-      flex-direction: row-reverse;
-      justify-content: flex-end;
+      .callback-btn,
+      .first-header-block .head-btn {
+        background-color: #00657b;
+        color: #fff;
+      }
 
-      a {
+      @media (max-width: 767.98px) {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+
+        a {
+          width: 100%;
+        }
+
+        span {
+          white-space: normal;
+          text-align: left;
+        }
+
+        .header-group-blocks:first-child span {
+          padding-top: 3px;
+        }
+      }
+
+      @media (max-width: 479.98px) {
+        .header-group-blocks:first-child a {
+          align-items: center;
+        }
+      }
+    }
+
+    .header-wrap-icon {
+      max-width: 22px;
+      min-height: 22px;
+    }
+
+    .first-header-block {
+      @media (max-width: 767.98px) {
+        margin-top: 2px;
+        display: flex;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        flex-direction: column;
+        width: 48%;
+
+        .logo-link img {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+
+      @media (min-width: 992px) and (max-width: 1199.98px) {
+        justify-content: flex-start !important;
+      }
+
+      @media (max-width: 393.98px) {
+        padding-right: 0;
+        width: 47%;
+      }
+
+      @media (max-width: 349.98px) {
+        width: 45%;
+      }
+    }
+
+    .second-header-block {
+      @media (max-width: 991.98px) {
+        margin-top: 20px;
+        padding-bottom: 5px;
+      }
+
+      @media (max-width: 767.98px) {
+        margin-top: 24px;
+        margin-bottom: 5px;
+        flex-direction: column;
+        width: 52%;
+      }
+
+      @media (max-width: 393.98px) {
+        width: 53%;
+        padding-left: 0;
+      }
+
+      @media (max-width: 349.98px) {
+        width: 55%;
+      }
+
+      @media (min-width: 768px) and (max-width: 1199.98px) {
         width: 100%;
       }
-
-      span {
-        white-space: normal;
-        text-align: left;
-      }
-
-      .header-group-blocks:first-child span {
-        padding-top: 3px;
-      }
-    }
-  }
-
-  @media (max-width: 479.98px) {
-    .second-header-block {
-      .header-group-blocks:first-child a {
-        align-items: center;
-      }
-    }
-
-    .first-header-block .s-xs-14 {
-      font-size: 14px;
     }
 
     .first-header-block .s13,
     .header-group-blocks a,
     .header-group-blocks span {
-      font-size: 12px !important;
-    }
-  }
-
-  @media (max-width: 393.98px) {
-    .first-header-block {
-      padding-right: 0;
-      width: 47%;
-
-      .s-xs-14 {
-        font-size: 12px;
+      @media (max-width: 991.98px) {
+        font-size: 14px !important;
       }
 
-      .s13 {
+      @media (max-width: 479.98px) {
+        font-size: 12px !important;
+      }
+
+      @media (max-width: 393.98px) {
         font-size: 11px !important;
       }
-    }
 
-    .header-group-blocks a,
-    .header-group-blocks span {
-      font-size: 11px !important;
-    }
-
-    .second-header-block {
-      width: 53%;
-      padding-left: 0;
-    }
-  }
-
-  @media (max-width: 349.98px) {
-    .header-group-blocks a,
-    .header-group-blocks span {
-      font-size: 10px !important;
-    }
-
-    .second-header-block .header-group-blocks img {
-      margin-left: 6px !important;
-    }
-
-    .first-header-block {
-      width: 45%;
-    }
-
-    .second-header-block {
-      width: 55%;
-
-      .header-group-blocks span.d-inline-block {
-        padding-right: 9px !important;
+      @media (max-width: 349.98px) {
+        font-size: 10px !important;
       }
     }
-  }
 
-  @media (min-width: 768px) and (max-width: 1199.98px) {
-    .second-header-block,
-    .first-header-block {
-      width: 100%;
+    .first-header-block .s-xs-14 {
+      @media (max-width: 479.98px) {
+        font-size: 14px;
+      }
+
+      @media (max-width: 393.98px) {
+        font-size: 12px;
+      }
+    }
+
+    .b-l-yawhite {
+      @media (min-width: 1200px) {
+        border-left: 1px solid #fff;
+      }
     }
 
     .callback-btn {
-      padding-top: 9px !important;
-      padding-bottom: 7px !important;
-    }
-  }
-
-  @media (min-width: 992px) and (max-width: 1199.98px) {
-    .first-header-block {
-      justify-content: flex-start !important;
-    }
-  }
-
-  @media (min-width: 1200px) {
-    .b-l-yawhite {
-      border-left: 1px solid #fff;
+      @media (min-width: 768px) and (max-width: 1199.98px) {
+        padding-top: 9px !important;
+        padding-bottom: 7px !important;
+      }
     }
   }
 </style>

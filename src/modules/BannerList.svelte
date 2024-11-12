@@ -39,13 +39,5 @@
     @media (max-width: 479.98px) {
       margin-bottom: 0;
     }
-
-    @media (min-width: 1200px) and (max-width: 1919.98px) {
-      // margin-bottom: 2rem;
-    }
-
-    @media (min-width: 1920px) {
-      // margin-bottom: 4rem;
-    }
   }
 </style>
